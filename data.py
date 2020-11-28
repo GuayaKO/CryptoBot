@@ -33,7 +33,9 @@ def create_structure(symbols):
 
 
 # create data structures
-SYMBOLS = ['XLM', 'XRP', 'BTC']
+SYMBOLS = ['XLM', 'XRP', 'BTC', 'ETH', 'LINK', 'ADA', \
+           'LTC', 'BCH', 'BNB', 'EOS', 'TRX', 'VET', \
+           'DASH', 'ETC', 'XMR']
 STRUCTURE, ROW = create_structure(SYMBOLS)
 
 
@@ -87,7 +89,7 @@ def main():
 
     # get the data
     binance.start()
-    time.sleep(900)
+    time.sleep(3600)
 
     # close connections
     for s in SYMBOLS:
@@ -100,7 +102,7 @@ def main():
     # save the data
     now = datetime.datetime.now()
     filename = now.strftime("%Y-%m-%d-%H-%M-%S")
-    STRUCTURE.to_csv('./data/{}.csv'.format(filename))
+    STRUCTURE.to_csv('./data/{}.csv'.format(filename), index=False)
 
 
 
